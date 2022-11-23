@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import {toast} from 'react-hot-toast';
+import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
     useTitle('Login');
     const { register, handleSubmit } = useForm();
-
-    const { loginUser } = useContext(AuthContext);
+    const { loginUser, providerLogin } = useContext(AuthContext);
 
     const handleLoginFormData = (data) => {
-        console.log(data);
+        // console.log(data);
         loginUser(data.email, data.password)
         .then(result=> {
             const user = result.user;
@@ -22,6 +22,23 @@ const Login = () => {
             console.log(error);
         })
     }
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleLogin = ()=>{
+        providerLogin(googleProvider)
+        .then(result=> {
+            const user = result.user;
+            console.log(user);
+        })
+        .then(error=> {
+            console.log(error);
+        })
+    }
+   
+
+
+
 
     return (
         <div className="hero">
@@ -55,9 +72,8 @@ const Login = () => {
                         </form>
                         <div className="divider">OR</div>
                         <div className="form-control pb-3">
-                            <button type='btn' className='btn btn-primary text-white'>Sing in with google</button>
+                            <button onClick={handleGoogleLogin} type='btn' className='btn btn-primary text-white'>Sing in with google</button>
                         </div>
-
 
                     </div>
                 </div>
