@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useTitle from '../../Hooks/useTitle/useTitle';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import {toast} from 'react-hot-toast';
 
 const Register = () => {
     useTitle('Register');
-    const {register, handleSubmit} = useForm();
+    const { register, handleSubmit } = useForm();
 
-
-    const handleRegisterFormData = data =>{
-        console.log(data);
+    const { createUser } = useContext(AuthContext);
+    const handleRegisterFormData = data => {
+        // console.log(data);
+        createUser(data.email, data.password)
+        .then(result=> {
+            const user = result.user;
+            console.log(user);
+            toast.success('User Created Successfully')
+        })
+        .catch(error=> {
+            console.log(error)
+        })
     }
 
     return (
@@ -18,25 +29,25 @@ const Register = () => {
                 <div className="hero-content w-full lg:w-[500px] flex-col lg:flex-row-reverse">
                     <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
                         <div className="card-body">
-                        <h3 style={{fontSize: '30px', fontWeight:'bold'}} className='text-center'>Register Now</h3>
+                            <h3 style={{ fontSize: '30px', fontWeight: 'bold' }} className='text-center'>Register Now</h3>
                             <form onSubmit={handleSubmit(handleRegisterFormData)} >
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>
                                     </label>
-                                    <input type="text" {...register('name', {required: true})}  name='name' placeholder="name" className="input input-bordered" />
+                                    <input type="text" {...register('name', { required: true })} name='name' placeholder="name" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" {...register('email', {required: true})}  name='email' placeholder="email" className="input input-bordered" />
+                                    <input type="email" {...register('email', { required: true })} name='email' placeholder="email" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" {...register('password', {required: true})} name='password' placeholder="password" className="input input-bordered" />
+                                    <input type="password" {...register('password', { required: true })} name='password' placeholder="password" className="input input-bordered" />
                                     <label className="label">
                                         <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                                     </label>
