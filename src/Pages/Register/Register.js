@@ -9,7 +9,7 @@ const Register = () => {
     useTitle('Register');
     const { register, handleSubmit } = useForm();
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
     const handleRegisterFormData = data => {
         // console.log(data);
         createUser(data.email, data.password)
@@ -17,11 +17,26 @@ const Register = () => {
             const user = result.user;
             console.log(user);
             toast.success('User Created Successfully')
+            const profile = {
+                displayName: data.name
+            }
+            updateUser(profile)
+            .then(()=>{})
+            .catch(error=> {
+                console.log(error);
+            })
+
         })
         .catch(error=> {
             console.log(error)
         })
     }
+
+
+
+
+
+
 
     return (
         <div>
