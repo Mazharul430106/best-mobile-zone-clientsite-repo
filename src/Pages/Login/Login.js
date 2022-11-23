@@ -1,25 +1,34 @@
 import React from 'react';
 import useTitle from '../../Hooks/useTitle/useTitle';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 const Login = () => {
     useTitle('Login');
+
+    const {register, handleSubmit} = useForm();
+
+    const handleLoginFormData = (data)=>{
+        console.log(data);
+    }
+
     return (
         <div className="hero">
             <div className="hero-content w-full lg:w-[500px] flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
                     <div className="card-body">
-                        <form>
+                        <h3 style={{fontSize: '30px', fontWeight:'bold'}} className='text-center'>Login Now</h3>
+                        <form onSubmit={handleSubmit(handleLoginFormData)}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" className="input input-bordered" />
+                                <input type="email" {...register('email', {required: true})} name='email' placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="password" className="input input-bordered" />
+                                <input type="password" {...register('password', {required: true})} name='password' placeholder="password" className="input input-bordered" />
                                 <label className="label">
                                     <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>
@@ -33,7 +42,7 @@ const Login = () => {
                             </div>
                         </form>
                         <div className="divider">OR</div>
-                        <div className="form-control">
+                        <div className="form-control pb-3">
                             <button type='btn' className='btn btn-primary text-white'>Sing in with google</button>
                         </div>
 
