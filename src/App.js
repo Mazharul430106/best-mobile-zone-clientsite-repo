@@ -4,7 +4,7 @@ import { routes } from './Pages/Routes/Routes/Routes';
 
 function App() {
   return (
-    <div className="w-[1440px] mx-auto ">
+    <div className="">
         <RouterProvider router={routes}></RouterProvider>
     </div>
   );
