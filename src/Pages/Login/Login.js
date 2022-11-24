@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     useTitle('Login');
     return (
-        <div className="hero my-16">
+        <div className="hero">
             <div className="hero-content w-full lg:w-[500px] flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
                     <div className="card-body">
