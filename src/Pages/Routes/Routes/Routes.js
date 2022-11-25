@@ -7,6 +7,7 @@ import Iphones from "../../Home/Categories/Iphones";
 import Home from "../../Home/Home/Home";
 import Login from "../../Login/Login";
 import Register from "../../Register/Register";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const routes = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/home',
                 element: <Home></Home>
             },
             {
@@ -31,15 +36,15 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/iPhone',
-                element: <Iphones></Iphones>
+                element: <PrivateRoutes><Iphones></Iphones></PrivateRoutes>
             },
             {
                 path: '/buttonPhone',
-                element: <AllButtonPhones></AllButtonPhones>
+                element: <PrivateRoutes><AllButtonPhones></AllButtonPhones></PrivateRoutes>
             },
             {
                 path: '/AndrowedPhone',
-                element:<AndrowedPhones></AndrowedPhones>
+                element:<PrivateRoutes><AndrowedPhones></AndrowedPhones></PrivateRoutes>
             }
 
         ]

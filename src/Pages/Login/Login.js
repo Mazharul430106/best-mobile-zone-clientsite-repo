@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import useTitle from '../../Hooks/useTitle/useTitle';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import {toast} from 'react-hot-toast';
@@ -9,6 +9,9 @@ const Login = () => {
     useTitle('Login');
     const { register, handleSubmit } = useForm();
     const { loginUser, providerLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const handleLoginFormData = (data) => {
         // console.log(data);
@@ -17,6 +20,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             toast.success('User Login Successfully')
+            navigate(from, { replace: true });
         })
         .then(error=> {
             console.log(error);
@@ -24,12 +28,12 @@ const Login = () => {
     }
 
     const googleProvider = new GoogleAuthProvider();
-
     const handleGoogleLogin = ()=>{
         providerLogin(googleProvider)
         .then(result=> {
             const user = result.user;
             console.log(user);
+            navigate(from, { replace: true });
         })
         .then(error=> {
             console.log(error);
