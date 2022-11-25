@@ -31,7 +31,6 @@ const Navbar = () => {
                 </>
             }
 
-
     </>
 
     return (
