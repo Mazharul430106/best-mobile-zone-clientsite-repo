@@ -10,7 +10,6 @@ const Iphones = () => {
         .then(res=> res.json())
     })
 
-
     return (
         <div>
             <div className='w-[95%] mx-auto'>
