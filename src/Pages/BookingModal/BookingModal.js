@@ -1,8 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import {toast} from 'react-hot-toast';
 
 const BookingModal = ({modalData}) => { 
     const {user} = useContext(AuthContext);
+    const handleModalSubmit = ()=> {
+       toast.success('Item is Booked');
+    }
 
     return (
         <div>
@@ -42,7 +46,7 @@ const BookingModal = ({modalData}) => {
                             <input type="text" name='reselPrice' placeholder="price" defaultValue={modalData?.Resel_Price} disabled className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full mt-6 mb-2">
-                            <label type="submit" className="btn btn-primary text-white w-full">Submit</label>
+                            <label onClick={handleModalSubmit} type="submit" className="btn btn-primary text-white w-full">Submit</label>
                         </div>
                     </form>
 

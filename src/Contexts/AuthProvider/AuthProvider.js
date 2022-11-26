@@ -15,24 +15,26 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [modalData, setModalData] = useState(null);
-
-    const [user, setUser] = useState('');
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-
     const providerLogin = (provider)=>{
+        setLoading(true);
         return signInWithPopup(auth, provider)
     }
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const updateUser = (profile)=>{
+        setLoading(true);
         return updateProfile(auth.currentUser, profile);
     }
 
     const loginUser = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
@@ -51,7 +53,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    const authInfo = { user, loading, modalData, setModalData, createUser, loginUser, logOutUser, updateUser, providerLogin }
+    const authInfo = { createUser, loginUser, updateUser, logOutUser, user, loading, providerLogin, modalData, setModalData,  }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
