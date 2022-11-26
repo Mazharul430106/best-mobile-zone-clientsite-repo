@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import DisplayProducts from './DisplayProducts';
 
 const MyProductPage = () => {
+    const [products, setProducts] = useState([]);
+    const { user } = useContext(AuthContext);
+    useEffect(() => {
+        fetch(`http://localhost:5000/products?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setProducts(data)
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, [user?.email])
+
+
+
     return (
-        <div>
-            <h1>This is My Product Page</h1>
+        <div className='w-[95%] mx-auto'>
+            <h2 className='text-3xl font-semibold'>My Products</h2>
+            <div className='grid lg:grid-cols-3 gap-10 py-5 pb-10'>
+                {
+                    products?.map(product => <DisplayProducts key={product._id} product={product}></DisplayProducts>)
+                }
+            </div>
         </div>
     );
 };

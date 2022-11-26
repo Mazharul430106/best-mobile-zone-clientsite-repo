@@ -36,11 +36,6 @@ const Register = () => {
     }
 
 
-
-
-
-
-
     return (
         <div>
             <div className="hero">

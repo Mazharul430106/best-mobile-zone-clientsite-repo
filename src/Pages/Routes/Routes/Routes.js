@@ -57,7 +57,6 @@ export const routes = createBrowserRouter([
                 element: <MyProductPage></MyProductPage>
             }
 
-
         ]
     },
     {

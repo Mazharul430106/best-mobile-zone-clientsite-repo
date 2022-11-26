@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import {toast} from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
@@ -11,9 +12,14 @@ const AddProduct = () => {
     const currentMonth = date.getMonth();
     const currentYear = date.getFullYear();
     const actualDate = currentDate + "-" +  currentMonth + "-" + currentYear; 
+
+    const navigate = useNavigate();
+
+
+
     
     const handleSubmitProduct = (data) => {
-        fetch(`http://localhost:5000/allMobilePhones`,{
+        fetch(`http://localhost:5000/addedProducts`,{
             method: 'post',
             headers: {
                 'content-type':'application/json'
@@ -25,6 +31,7 @@ const AddProduct = () => {
             console.log(data);
             if(data.acknowledged){
                 toast.success('product added successfully')
+                navigate('/myProduct');
             }
         })
         .then(error=> {
