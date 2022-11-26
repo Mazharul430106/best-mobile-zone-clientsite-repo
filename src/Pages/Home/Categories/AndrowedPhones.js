@@ -3,7 +3,6 @@ import React from 'react';
 import DisplayAndrowedPhones from './DisplayAndrowedPhones';
 
 const AndrowedPhones = () => {
-
     const { data: androwedPhones = [] } = useQuery({
         queryKey: ['phones'],
         queryFn: () => fetch(`http://localhost:5000/phones?phoneType=AndrowedPhone`)
@@ -16,8 +15,8 @@ const AndrowedPhones = () => {
                 <h2 className='text-3xl font-semibold'>AndrowedPhones</h2>
                 <div className='grid w-full lg:grid-cols-3 gap-10 py-5 pb-10'>
                     {
-                        androwedPhones.map(androwedPhone => <DisplayAndrowedPhones
-                            key={androwedPhone} 
+                        androwedPhones?.map(androwedPhone => <DisplayAndrowedPhones
+                            key={androwedPhone}
                             androwedPhone={androwedPhone}
                         >
                         </DisplayAndrowedPhones>)

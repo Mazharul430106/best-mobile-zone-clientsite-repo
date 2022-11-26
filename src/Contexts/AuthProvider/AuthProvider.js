@@ -14,8 +14,11 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+    const [modalData, setModalData] = useState(null);
+
     const [user, setUser] = useState('');
     const [loading, setLoading] = useState(true);
+
 
     const providerLogin = (provider)=>{
         return signInWithPopup(auth, provider)
@@ -48,7 +51,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    const authInfo = { user, loading, createUser, loginUser, logOutUser, updateUser, providerLogin }
+    const authInfo = { user, loading, modalData, setModalData, createUser, loginUser, logOutUser, updateUser, providerLogin }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

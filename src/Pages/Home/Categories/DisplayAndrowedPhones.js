@@ -1,29 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const DisplayAndrowedPhones = ({androwedPhone}) => {
     const { name, image, location, Orignal_Price, Resel_Price, Posted_Time, Seller_Name, Year_Of_Use } = androwedPhone;
+    const {setModalData} = useContext(AuthContext);
     return (
         <div className="card card-compact w-full bg-base-100 shadow-xl">
             <figure><img src={image} className=" h-80  w-full" alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
-                <div className=''>
+                <div>
                     <div className='flex justify-between'>
-                        <p style={{ fontSize: '12px' }}>Seller Name:{Seller_Name}</p>
-                        <p style={{ fontSize: '12px' }}>Location: {location}</p>
+                        <span style={{ fontSize: '15px' }}>Seller Name:{Seller_Name}</span>
+                        <span style={{ fontSize: '15px' }}>Location: {location}</span>
                     </div>
-                    <div className='flex justify-between'>
-                        <p style={{ fontSize: '12px' }}>Orignal Price: {Orignal_Price} Tk</p>
-                        <p style={{ fontSize: '12px' }}>Resel Price : {Resel_Price} Tk</p>
+                    <div className='flex justify-between my-3'>
+                        <span style={{ fontSize: '15px' }}>Orignal Price: {Orignal_Price} Tk</span>
+                        <span style={{ fontSize: '15px' }}>Resel Price : {Resel_Price} Tk</span>
                     </div>
-                    <div className='flex justify-between'>
-                        <p style={{ fontSize: '12px' }}>Time {Posted_Time}</p>
-                        <p style={{ fontSize: '12px' }}>Use of Year : {Year_Of_Use}</p>
+                    <div className='flex justify-between mb-2'>
+                        <span style={{ fontSize: '15px' }}>Time {Posted_Time}</span>
+                        <span style={{ fontSize: '15px' }}>Use of Year : {Year_Of_Use}</span>
                     </div>
                 </div>
                 <div className="card-actions pb-3">
-                    <Link to='' className="btn btn-primary w-full text-white">Book Now</Link>
+                    <label onClick={()=>setModalData(androwedPhone)} htmlFor="booking-modal" className="btn btn-primary w-full text-white"> Book Now</label>
                 </div>
             </div>
         </div>
