@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import {toast} from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle/useTitle';
 
 const AddProduct = () => {
+    useTitle('Add Product')
+
     const { register, handleSubmit } = useForm();
     const {user} = useContext(AuthContext);
     const date = new Date();

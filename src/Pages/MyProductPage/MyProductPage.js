@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle/useTitle';
 import DisplayProducts from './DisplayProducts';
 
 const MyProductPage = () => {
+    useTitle('My Products')
     const [products, setProducts] = useState([]);
     const { user } = useContext(AuthContext);
     useEffect(() => {
@@ -16,7 +18,6 @@ const MyProductPage = () => {
                 console.log(error);
             })
     }, [user?.email])
-
 
 
     return (
