@@ -49,16 +49,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/AndrowedPhone',
                 element:<PrivateRoutes><AndrowedPhones></AndrowedPhones></PrivateRoutes>
-            },
-            {
-                path: '/addProduct',
-                element: <AddProduct></AddProduct>
-            },
-            {
-                path: '/myProduct',
-                element: <MyProductPage></MyProductPage>
             }
-
         ]
     },
 
@@ -67,12 +58,19 @@ export const routes = createBrowserRouter([
         element:<DashboardLayout></DashboardLayout>,
         children: [
             {
-                path: '/dashboard/dashboard',
+                path: '/dashboard',
                 element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard/addProduct',
+                element: <AddProduct></AddProduct>
+            },
+            {
+                path: '/dashboard/myProduct',
+                element: <MyProductPage></MyProductPage>
             }
         ]
     },
-
 
     {
         path: '*',

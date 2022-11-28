@@ -39,7 +39,6 @@ const AddProduct = () => {
         })
     }
 
-
     return (
         <div className="hero pb-5">
             <div className="hero-content w-full lg:w-[500px] flex-col lg:flex-row-reverse">
