@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "../../../Layout/DashboardLayout";
 import Main from "../../../Layout/Main";
 import AddProduct from "../../AddProduct/AddProduct";
 import Blog from "../../Blog/Blog";
+import Dashboard from "../../Dashboard/Dashboard";
 import AllButtonPhones from "../../Home/Categories/AllButtonPhones";
 import AndrowedPhones from "../../Home/Categories/AndrowedPhones";
 import Iphones from "../../Home/Categories/Iphones";
@@ -59,6 +61,19 @@ export const routes = createBrowserRouter([
 
         ]
     },
+
+    {
+        path: '/dashboard',
+        element:<DashboardLayout></DashboardLayout>,
+        children: [
+            {
+                path: '/dashboard/dashboard',
+                element: <Dashboard></Dashboard>
+            }
+        ]
+    },
+
+
     {
         path: '*',
         element: <div>Data Not Found</div>
