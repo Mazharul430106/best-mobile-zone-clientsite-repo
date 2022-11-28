@@ -11,7 +11,7 @@ const MyProductPage = () => {
         fetch(`http://localhost:5000/products?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setProducts(data)
             })
             .catch(error => {

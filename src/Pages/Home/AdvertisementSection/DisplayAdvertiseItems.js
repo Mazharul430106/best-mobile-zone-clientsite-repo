@@ -1,38 +1,24 @@
 import React from 'react';
-import { toast } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
-const DisplayProducts = ({ product }) => {
-    const { name, image, location, Orignal_Price, Resel_Price, Posted_Time, Seller_Name, Year_Of_Use } = product;
+const DisplayAdvertiseItems = ({ advertiseItem, refetch }) => {
+    const { name, image, location, Orignal_Price, Resel_Price, Posted_Time, Seller_Name, Year_Of_Use } = advertiseItem;
 
-    const handleAdvertiseData = (productData) => {
-        const advertiseData = {
-            name,
-            image,
-            location,
-            Orignal_Price,
-            Resel_Price,
-            Posted_Time,
-            Seller_Name,
-            Year_Of_Use
-        }
+    const handleDeleteAdvertise = (advertiseItem) => {
 
-        fetch('http://localhost:5000/advertise', {
-            method: 'post',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(advertiseData)
+        fetch(`http://localhost:5000/advertise/${advertiseItem._id}`, {
+            method: 'delete'
         })
             .then(res => res.json())
             .then(data => {
-                if (data.acknowledged) {
-                    toast.success('Advertise data successfully added');
+                if (data.deletedCount > 0) {
+                    toast.success('Advertise Successfully Deleted');
+                    refetch();
                 }
             })
-            .catch(error => {
-                console.log(error);
-            })
+            .catch(error => console.log(error))
     }
+
 
     return (
         <div className="card card-compact w-full bg-base-100 shadow-xl">
@@ -54,11 +40,14 @@ const DisplayProducts = ({ product }) => {
                     </div>
                 </div>
                 <div className="card-actions pb-3">
-                    <label onClick={() => handleAdvertiseData(product)} className="btn btn-primary w-full text-white">Advertise</label>
+                    <div className='flex'>
+                        <span className="btn btn-primary text-white">pay for user</span>
+                        <span onClick={() => handleDeleteAdvertise(advertiseItem)} className="btn btn-primary ml-40 text-white">Delete for seller</span>
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default DisplayProducts;
+export default DisplayAdvertiseItems;

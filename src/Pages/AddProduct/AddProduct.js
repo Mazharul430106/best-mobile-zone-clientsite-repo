@@ -14,13 +14,10 @@ const AddProduct = () => {
     const currentDate = date.getDate();
     const currentMonth = date.getMonth();
     const currentYear = date.getFullYear();
-    const actualDate = currentDate + "-" +  currentMonth + "-" + currentYear; 
+    const actualDate = currentDate + "-" +  (currentMonth + 1) + "-" + currentYear; 
 
     const navigate = useNavigate();
 
-
-
-    
     const handleSubmitProduct = (data) => {
         fetch(`http://localhost:5000/addedProducts`,{
             method: 'post',
