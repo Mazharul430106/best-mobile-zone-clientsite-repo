@@ -19,7 +19,7 @@ const AddProduct = () => {
     const navigate = useNavigate();
 
     const handleSubmitProduct = (data) => {
-        fetch(`http://localhost:5000/addedProducts`,{
+        fetch(`https://best-mobile-zone-server.vercel.app/addedProducts`,{
             method: 'post',
             headers: {
                 'content-type':'application/json'

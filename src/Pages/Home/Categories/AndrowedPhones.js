@@ -5,7 +5,7 @@ import DisplayAndrowedPhones from './DisplayAndrowedPhones';
 const AndrowedPhones = () => {
     const { data: androwedPhones = [] } = useQuery({
         queryKey: ['phones'],
-        queryFn: () => fetch(`http://localhost:5000/phones?phoneType=AndrowedPhone`)
+        queryFn: () => fetch(`https://best-mobile-zone-server.vercel.app/phones?phoneType=AndrowedPhone`)
             .then(res => res.json())
     })
 

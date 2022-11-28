@@ -6,7 +6,7 @@ const Iphones = () => {
 
     const {data: iPhones = []} = useQuery({
         queryKey: ['phones'],
-        queryFn: ()=> fetch(`http://localhost:5000/phones?phoneType=iPhone`)
+        queryFn: ()=> fetch(`https://best-mobile-zone-server.vercel.app/phones?phoneType=iPhone`)
         .then(res=> res.json())
     })
 

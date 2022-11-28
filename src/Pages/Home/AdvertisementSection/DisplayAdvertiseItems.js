@@ -6,7 +6,7 @@ const DisplayAdvertiseItems = ({ advertiseItem, refetch }) => {
 
     const handleDeleteAdvertise = (advertiseItem) => {
 
-        fetch(`http://localhost:5000/advertise/${advertiseItem._id}`, {
+        fetch(`https://best-mobile-zone-server.vercel.app/advertise/${advertiseItem._id}`, {
             method: 'delete'
         })
             .then(res => res.json())

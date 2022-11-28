@@ -16,7 +16,7 @@ const DisplayProducts = ({ product }) => {
             Year_Of_Use
         }
 
-        fetch('http://localhost:5000/advertise', {
+        fetch('https://best-mobile-zone-server.vercel.app/advertise', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'
