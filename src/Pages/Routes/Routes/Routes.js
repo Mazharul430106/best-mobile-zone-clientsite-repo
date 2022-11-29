@@ -9,6 +9,7 @@ import AndrowedPhones from "../../Home/Categories/AndrowedPhones";
 import Iphones from "../../Home/Categories/Iphones";
 import Home from "../../Home/Home/Home";
 import Login from "../../Login/Login";
+import MyOrders from "../../MyOrders/MyOrders";
 import MyProductPage from "../../MyProductPage/MyProductPage";
 import Register from "../../Register/Register";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
@@ -68,6 +69,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/myProduct',
                 element: <MyProductPage></MyProductPage>
+            },
+            {
+                path: '/dashboard/myOrders',
+                element: <MyOrders></MyOrders>
             }
         ]
     },
