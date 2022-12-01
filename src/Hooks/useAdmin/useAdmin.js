@@ -8,7 +8,7 @@ const useAdmin = email => {
 
     useEffect(()=>{
         if(email){
-            fetch(`http://localhost:5000/users/admin/${email}`)
+            fetch(`https://best-mobile-zone-server.vercel.app/users/admin/${email}`)
             .then(res=> res.json())
             .then(data=> {
                 console.log(data);
@@ -21,7 +21,7 @@ const useAdmin = email => {
         }
 
         if(email){
-            fetch(`http://localhost:5000/users/user/${email}`)
+            fetch(`https://best-mobile-zone-server.vercel.app/users/user/${email}`)
             .then(res=> res.json())
             .then(data=> {
                 console.log(data)
@@ -34,7 +34,7 @@ const useAdmin = email => {
 
 
         if(email){
-            fetch(`http://localhost:5000/users/seller/${email}`)
+            fetch(`https://best-mobile-zone-server.vercel.app/users/seller/${email}`)
             .then(res=> res.json())
             .then(data=> {
                 setisSeller(data.isSeller)
