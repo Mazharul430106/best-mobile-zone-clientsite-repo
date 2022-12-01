@@ -3,7 +3,7 @@ import useTitle from '../../Hooks/useTitle/useTitle';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import {toast} from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
     useTitle('Register');
@@ -12,27 +12,64 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handleRegisterFormData = data => {
-        // console.log(data);
+        console.log(data);
         createUser(data.email, data.password)
-        .then(result=> {
-            const user = result.user;
-            console.log(user);
-            toast.success('User Created Successfully')
-            const profile = {
-                displayName: data.name
-            }
-            updateUser(profile)
-            .then(()=>{
-                navigate('/')
-            })
-            .catch(error=> {
-                console.log(error);
-            })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
 
+                const profile = {
+                    displayName: data.name
+                }
+                updateUser(profile)
+                    .then(() => {
+                        savedUser(data.name, data.email, data.role);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+    const savedUser = (name, email, role) => {
+        const user = { name, email, role}
+        fetch('http://localhost:5000/users', {
+            method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
         })
-        .catch(error=> {
-            console.log(error)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    toast.success('User Created Successfully')
+                    getTokenUser(email)
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+    const getTokenUser = email => {
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.accessToken) {
+                    localStorage.setItem('accessToken', data.accessToken);
+                    navigate('/')
+                }
+            })
+            .then(error => {
+                console.log(error)
+            })
     }
 
 
@@ -65,6 +102,17 @@ const Register = () => {
                                         <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                                     </label>
                                 </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Role</span>
+                                    </label>
+                                    <select name='role' {...register('role', {required: true})} className="select input input-bordered">
+                                        <option>seller</option>
+                                        <option>user</option>
+                                    </select>
+                                </div>
+
+
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary text-white">Register</button>
                                 </div>

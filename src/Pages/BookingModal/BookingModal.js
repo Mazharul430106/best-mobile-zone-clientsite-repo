@@ -16,8 +16,7 @@ const BookingModal = ({ modalData }) => {
         data.reselPrice = modalData.Resel_Price
         data.productImage = modalData.image
         
-
-       fetch(`http://localhost:5000/bookingPhones`,{
+       fetch(`https://best-mobile-zone-server.vercel.app/bookingPhones`,{
             method: 'post',
             headers: {
                 'content-type':'application/json'
@@ -45,32 +44,32 @@ const BookingModal = ({ modalData }) => {
                     <label htmlFor="booking-modal" className="btn btn-primary btn-sm btn-circle absolute right-2 top-2 bg-primary text-white">✕</label>
     
                     <form onSubmit={handleSubmit(handleBookingModalData)}>
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Name</span></label>
-                        <input type="text" {...register("name")} value={user?.displayName} readOnly className="input input-bordered w-full max-w-xs" />
+                        <input type="text" {...register("name")} value={user?.displayName} readOnly className="input input-bordered w-full" />
                     </div>
 
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">email</span></label>
-                        <input type="email" {...register("email")} value={user?.email} readOnly className="input input-bordered w-full max-w-xs" />
+                        <input type="email" {...register("email")} value={user?.email} readOnly className="input input-bordered w-full " />
                     </div>
 
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Item Name</span></label>
-                        <input type="text" {...register("itemName")} value={modalData?.name} readOnly className="input input-bordered w-full max-w-xs" />
+                        <input type="text" {...register("itemName")} value={modalData?.name} readOnly className="input input-bordered w-full " />
                     </div>
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Item Image</span></label>
-                        <input type="text" {...register("productImage")} value={modalData?.image} readOnly className="input input-bordered w-full max-w-xs" />
+                        <input type="text" {...register("productImage")} value={modalData?.image} readOnly className="input input-bordered w-full " />
                     </div>
 
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Original Price</span></label>
-                        <input type="text" {...register("orignalPrice")} value={modalData?.Orignal_Price} readOnly className="input input-bordered w-full max-w-xs" />
+                        <input type="text" {...register("orignalPrice")} value={modalData?.Orignal_Price} readOnly className="input input-bordered w-full " />
                     </div>
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Resel Price</span></label>
-                        <input type="text" {...register("reselPrice")} value={modalData?.Resel_Price} readOnly className="input input-bordered w-full max-w-xs" />
+                        <input type="text" {...register("reselPrice")} value={modalData?.Resel_Price} readOnly className="input input-bordered w-full " />
                     </div>
                         <input className='btn btn-primary text-white w-full mt-4' value="submit" type="submit" />
                     </form>

@@ -31,7 +31,7 @@ const AddProduct = () => {
             console.log(data);
             if(data.acknowledged){
                 toast.success('product added successfully')
-                navigate('/myProduct');
+                navigate('/dashboard/myProduct');
             }
         })
         .then(error=> {

@@ -40,7 +40,7 @@ const Login = () => {
         })
     }
    
-
+    
     return (
         <div className="hero">
             <div className="hero-content w-full lg:w-[500px] flex-col lg:flex-row-reverse">

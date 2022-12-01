@@ -5,10 +5,11 @@ import DisplayOrders from './DisplayOrders';
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
     const [myOrders, setmyOrders] = useState([]);
-    console.log(myOrders);
+    // console.log(myOrders);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bookingPhones?email=${user?.email}`)
+        if(!user?.email) return;
+        fetch(`https://best-mobile-zone-server.vercel.app/bookingPhones?email=${user?.email}`)
         .then(res => res.json())
         .then(data=> {
             console.log(data);
@@ -19,7 +20,6 @@ const MyOrders = () => {
         })
 
     },[user?.email])
-
 
 
     return (

@@ -15,6 +15,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
 
+
     const [modalData, setModalData] = useState(null);
 
     const [user, setUser] = useState(null);
