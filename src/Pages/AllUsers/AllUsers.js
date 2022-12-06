@@ -1,30 +1,53 @@
-import React from 'react';
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext, useEffect, useState } from 'react';
+// import { useQuery } from '@tanstack/react-query'
 import toast from 'react-hot-toast';
+// import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const AllUsers = () => {
     const { data: users = [], refetch} = useQuery({
         queryKey: ['users'],
         queryFn: () => fetch('https://best-mobile-zone-server.vercel.app/users')
-            .then(res => res.json())
-          
+        .then(res => res.json())
+
     })
 
-    const handleDeleteUser =(id)=>{
+    // const { user } = useContext(AuthContext);
+    // const [users, setUsers] = useState([]);
+
+    // useEffect(() => {
+    //     if (user?.email) {
+    //            fetch(`http://localhost:5000/users/user/${user?.email}`)
+    //            .then(res=> res.json())
+    //            .then(data=> {
+    //                 console.log(data);
+    //                 setUsers(data.isUsers);
+    //            }) 
+    //            .catch(error=> {
+    //                 console.log(error)
+    //            })
+    //     }
+
+    // }, [user?.email])
+
+
+
+
+    const handleDeleteUser = (id) => {
         fetch(`https://best-mobile-zone-server.vercel.app/users/${id}`, {
             method: 'delete'
         })
-        .then(res=> res.json())
-        .then(data=> {
-            console.log(data)
-            if(data.deletedCount > 0){
-                toast.success('user delete successfully')
-                refetch();
-            }
-        })
-        .catch(error=> {
-            console.log(error)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    toast.success('user delete successfully')
+                    // refetch();
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
 
@@ -49,7 +72,7 @@ const AllUsers = () => {
                             <td>{user?.name}</td>
                             <td>{user?.email}</td>
                             <td>{user?.role}</td>
-                            <td><button onClick={()=>handleDeleteUser(user._id)}  className='btn btn-primary text-white' disabled={user?.role === 'admin'}>delete</button></td>
+                            <td><button onClick={() => handleDeleteUser(user._id)} className='btn btn-primary text-white' disabled={user?.role === 'admin'}>delete</button></td>
                         </tr>)
                     }
 

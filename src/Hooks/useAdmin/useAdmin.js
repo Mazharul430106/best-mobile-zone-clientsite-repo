@@ -26,6 +26,7 @@ const useAdmin = email => {
             .then(data=> {
                 console.log(data)
                 setIsUser(data.isUser);
+                setIsloading(false);
             })
             .catch(error=> {
                 console.log(error);
@@ -38,6 +39,7 @@ const useAdmin = email => {
             .then(res=> res.json())
             .then(data=> {
                 setisSeller(data.isSeller)
+                setIsloading(false);
             })
             .catch(error=> {
                 console.log(error)
