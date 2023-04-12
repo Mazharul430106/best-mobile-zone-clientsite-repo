@@ -15,7 +15,7 @@ const Categories = () => {
             <div>
                 <h2 className='text-5xl font-semibold text-center py-10'> Phone Categories</h2>
             </div>
-            <div className='w-[95%] mx-auto'>
+            <div className='px-[7%]'>
                 <div className='grid lg:grid-cols-3 w-full gap-10 pb-16'>
                     {
                         categories.map(category => <DisplayCategories 

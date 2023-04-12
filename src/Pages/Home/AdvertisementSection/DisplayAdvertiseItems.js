@@ -21,7 +21,7 @@ const DisplayAdvertiseItems = ({ advertiseItem, refetch }) => {
 
 
     return (
-        <div className="card card-compact w-full bg-base-100 shadow-xl">
+        <div className="card card-compact w-full bg-base-100 shadow-xl rounded ">
             <figure><img src={image} className=" h-80  w-full" alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
@@ -39,11 +39,9 @@ const DisplayAdvertiseItems = ({ advertiseItem, refetch }) => {
                         <span style={{ fontSize: '15px' }}>Use of Year : {Year_Of_Use}</span>
                     </div>
                 </div>
-                <div className="card-actions pb-3">
-                    <div className='flex'>
-                        <span className="btn btn-primary text-white">pay for user</span>
-                        <span onClick={() => handleDeleteAdvertise(advertiseItem)} className="btn btn-primary ml-40 text-white">Delete for seller</span>
-                    </div>
+                <div className="flex items-center justify-between pb-3">
+                    <button className="btn btn-primary text-white">pay for user</button>
+                    <button onClick={() => handleDeleteAdvertise(advertiseItem)} className="btn btn-primary text-white">Delete for seller</button>
                 </div>
             </div>
         </div>

@@ -109,6 +109,7 @@ const Register = () => {
                                     <select name='role' {...register('role', {required: true})} className="select input input-bordered">
                                         <option>seller</option>
                                         <option>user</option>
+                                    
                                     </select>
                                 </div>
 
