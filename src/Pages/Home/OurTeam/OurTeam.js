@@ -1,9 +1,6 @@
 import React from 'react';
 import DisplayOurTeam from './DisplayOurTeam';
 
-
-
-
 const ourTeams = [
     {
         "name": "Margaret Grimes",
@@ -27,12 +24,11 @@ const ourTeams = [
     }
 ]
 
-
 const OurTeam = () => {
     return (
         <div className='px-[7%] '>
             <div className='text-center py-10'>
-                <h1 className='text-5xl font-bold'>Our Team </h1>
+                <h1 className='text-5xl font-bold'>Meet Our Team </h1>
             </div>
             <div className='grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5'>
                 {

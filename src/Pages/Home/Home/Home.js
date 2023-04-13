@@ -6,6 +6,7 @@ import CarouselSlider from '../CarouselSlider/CarouselSlider';
 import Categories from '../Categories/Categories';
 import AboutUs from '../../AboutUs/AboutUs';
 import OurTeam from '../OurTeam/OurTeam';
+import Newsletter from '../Newsletter/Newsletter';
 
 const Home = () => {
     useTitle('Home');
@@ -16,6 +17,7 @@ const Home = () => {
             <Categories></Categories>
             <AdvertisementSection></AdvertisementSection>
             <OurTeam></OurTeam>
+            <Newsletter></Newsletter>
             <ContactSection></ContactSection>
         </div>
     );
