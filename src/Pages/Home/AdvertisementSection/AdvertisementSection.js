@@ -15,7 +15,7 @@ const AdvertisementSection = () => {
             <h1 className='text-center text-5xl font-semibold mb-5'>Our Advertisement</h1>
             <div className='px-[7%]'>
 
-                <div className='grid lg:grid-cols-3 gap-10 py-5 pb-10'>
+                <div className='grid lg:grid-cols-3 gap-10 py-5'>
                     {
                         advertiseItems.map(advertiseItem => <DisplayAdvertiseItems
                             key={advertiseItem._id}

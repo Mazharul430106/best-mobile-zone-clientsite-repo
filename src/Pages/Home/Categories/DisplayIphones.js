@@ -6,7 +6,7 @@ const DisplayIphones = ({ iphone}) => {
     const { name, image, location, Orignal_Price, Resel_Price, Posted_Time, Seller_Name, Year_Of_Use } = iphone;
     const {setModalData} = useContext(AuthContext)
     return (
-        <div className="card card-compact w-full bg-base-100 shadow-xl">
+        <div className="card card-compact w-full rounded shadow-xl">
             <figure><img src={image} className=" h-80  w-full" alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>

@@ -28,14 +28,14 @@ const Navbar = () => {
                 <>
 
                     <li><Link to='/register'>Register</Link></li>
-                    <li><Link to='/login'>Login</Link></li>
+                    <li className=''><Link to='/login'>Login</Link></li>
                 </>
         }
 
     </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 xl:px-[7%] lg:px-[7%] md:px-[7%] px-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -45,7 +45,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link className="normal-case text-xl">Best Mobile Zone</Link>
+                <Link to='/' className="normal-case text-xl">Best Mobile Zone</Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

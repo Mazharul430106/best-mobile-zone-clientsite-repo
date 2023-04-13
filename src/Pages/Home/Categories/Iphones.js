@@ -12,7 +12,7 @@ const Iphones = () => {
 
     return (
         <div>
-            <div className='w-[95%] mx-auto'>
+            <div className='px-[7%]'>
                 <h2 className='text-3xl font-semibold'>iPhones</h2>
                 <div className='grid w-full lg:grid-cols-3 gap-10 py-5 pb-10'>
                     {
