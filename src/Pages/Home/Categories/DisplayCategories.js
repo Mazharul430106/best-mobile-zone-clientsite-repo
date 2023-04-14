@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const DisplayCategories = ({ category }) => {
-    // console.log(category)
+     console.log(category)
    const {name, image, phoneType} = category;
+
     return (
         <div className="card card-compact w-full bg-base-100 rounded shadow-xl">
             <figure><img src={image} className=" h-80  w-full" alt="Shoes" /></figure>

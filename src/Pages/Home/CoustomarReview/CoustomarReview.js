@@ -41,10 +41,10 @@ const CoustomarReview = () => {
                 </div>
                 <div className='xl:flex lg:flex md:flex flex-none gap-3'>
                     <input type="email" {...register("email", { required: true })} name='email' placeholder="Email" className="input input-bordered input-primary focus:outline-none rounded-lg mb-2 w-full" />
-                    <input type="url" {...register("url", { required: true })} name='url' placeholder="Url" className="input input-bordered input-primary focus:outline-none rounded-lg mb-2 w-full " />
+                    <input type="url" {...register("url", { required: true })} name='url' placeholder="Img_Url" className="input input-bordered input-primary focus:outline-none rounded-lg mb-2 w-full " />
                 </div>
                 <div>
-                    <textarea typeof='textarea' minLength='170' maxLength='200' {...register("review", { required: true })} name='review' className="textarea textarea-primary w-full focus:outline-none xl:min-h-[200px] lg:min-h-[200px] md:min-h-[200px]  mb-3 rounded-lg " placeholder="Message"></textarea>
+                    <textarea typeof='textarea' minLength='170' maxLength='200' {...register("review", { required: true })} name='review' className="textarea textarea-primary w-full focus:outline-none xl:min-h-[200px] lg:min-h-[200px] md:min-h-[200px] min-h-[150px]  mb-3 rounded-lg " placeholder="Message"></textarea>
                 </div>
                 <div className='flex  items-center justify-end'>
                     <button type='submit' className='btn btn-primary xl:w-[180px] lg:w-[180px] md:w-[180px] w-full text-white mb-20 rounded-lg'>Submit</button>

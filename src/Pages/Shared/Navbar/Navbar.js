@@ -23,13 +23,13 @@ const Navbar = () => {
         {
             user?.uid ? <>
 
-                <li><Link onClick={handleLogOutUser}>Logout</Link></li>
+                <li className=''><Link className='pr-0 hover:pr-5 hover:delay-75' onClick={handleLogOutUser}>Logout</Link></li>
             </>
                 :
                 <>
 
                     <li><Link to='/register'>Register</Link></li>
-                    <li className=''><Link to='/login'>Login</Link></li>
+                    <li className=''><Link className='' to='/login'>Login</Link></li>
                 </>
         }
 

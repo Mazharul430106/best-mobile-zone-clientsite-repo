@@ -3,7 +3,9 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const DisplayButtonPhones = ({buttonPhone}) => {
     const { name, image, location, Orignal_Price, Resel_Price, Posted_Time, Seller_Name, Year_Of_Use } = buttonPhone;
+    console.log(buttonPhone)
     const {setModalData} = useContext(AuthContext);
+    
     return (
         <div className="card card-compact w-full rounded shadow-xl">
             <figure><img src={image} className=" h-80  w-full" alt="Shoes" /></figure>

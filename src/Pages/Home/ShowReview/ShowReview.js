@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import DisplayShowReview from './DisplayShowReview';
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 
 const ShowReview = () => {
 
     const [reviews, setReviews] = useState([]);
-    console.log(reviews)
+    // console.log(reviews)
     useEffect(() => {
         fetch('http://localhost:5000/reviews')
             .then(res => res.json())
@@ -19,7 +17,7 @@ const ShowReview = () => {
     }, [])
 
 
-    const settings = {
+    var settings = {
         dots: true,
         infinite: true,
         speed: 500,
@@ -28,32 +26,32 @@ const ShowReview = () => {
         initialSlide: 0,
         autoplay: true,
         responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true
             }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              initialSlide: 1
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
         ]
-    };
+      };
 
     return (
         <div className='px-[7%] pb-[80px]'>
