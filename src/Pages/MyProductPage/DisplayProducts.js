@@ -55,6 +55,7 @@ const DisplayProducts = ({ product }) => {
                 </div>
                 <div className="card-actions pb-3">
                     <label onClick={() => handleAdvertiseData(product)} className="btn btn-primary w-full text-white">Advertise</label>
+                    <label  className="btn btn-primary w-full text-white">Delete</label>
                 </div>
             </div>
         </div>

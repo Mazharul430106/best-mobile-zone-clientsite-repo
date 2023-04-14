@@ -13,11 +13,11 @@ import app from '../../Firebase/Firebase.init';
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
+
 const AuthProvider = ({ children }) => {
 
-
     const [modalData, setModalData] = useState(null);
-
+    
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    const authInfo = { createUser, loginUser, updateUser, logOutUser, user, loading, providerLogin, modalData, setModalData,  }
+    const authInfo = { createUser, loginUser, updateUser, logOutUser, user, loading, providerLogin, modalData, setModalData }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

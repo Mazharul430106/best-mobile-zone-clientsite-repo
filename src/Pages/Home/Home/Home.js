@@ -7,6 +7,7 @@ import Categories from '../Categories/Categories';
 import AboutUs from '../../AboutUs/AboutUs';
 import OurTeam from '../OurTeam/OurTeam';
 import Newsletter from '../Newsletter/Newsletter';
+import ShowReview from '../ShowReview/ShowReview';
 
 const Home = () => {
     useTitle('Home');
@@ -17,6 +18,7 @@ const Home = () => {
             <Categories></Categories>
             <AdvertisementSection></AdvertisementSection>
             <OurTeam></OurTeam>
+            <ShowReview></ShowReview>
             <Newsletter></Newsletter>
             <ContactSection></ContactSection>
         </div>

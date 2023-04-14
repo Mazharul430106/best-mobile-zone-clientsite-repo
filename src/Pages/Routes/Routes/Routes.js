@@ -15,6 +15,7 @@ import MyProductPage from "../../MyProductPage/MyProductPage";
 import Register from "../../Register/Register";
 import AdminRoutes from "../PrivateRoutes/AdminRoute";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import CoustomarReview from "../../Home/CoustomarReview/CoustomarReview";
 
 export const routes = createBrowserRouter([
     {
@@ -52,7 +53,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/AndrowedPhone',
                 element:<PrivateRoutes><AndrowedPhones></AndrowedPhones></PrivateRoutes>
-            }
+            }, 
+            {
+                path: '/reviewPage',
+                element: <CoustomarReview></CoustomarReview>
+            },
+            
         ]
     },
 

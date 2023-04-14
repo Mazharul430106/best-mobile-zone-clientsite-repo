@@ -22,7 +22,7 @@ const MyProductPage = () => {
     return (
         <div className='w-[95%] mx-auto'>
             <h2 className='text-3xl font-semibold'>My Products</h2>
-            <div className='grid lg:grid-cols-3 gap-10 py-5 pb-10'>
+            <div className='grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-5 pb-10'>
                 {
                     products?.map(product => <DisplayProducts key={product._id} product={product}></DisplayProducts>)
                 }

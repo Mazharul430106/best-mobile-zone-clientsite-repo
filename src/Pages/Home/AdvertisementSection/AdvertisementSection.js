@@ -21,6 +21,7 @@ const AdvertisementSection = () => {
                             key={advertiseItem._id}
                             advertiseItem={advertiseItem}
                             refetch={refetch}
+                          
                         >
                         </DisplayAdvertiseItems>)
                     }

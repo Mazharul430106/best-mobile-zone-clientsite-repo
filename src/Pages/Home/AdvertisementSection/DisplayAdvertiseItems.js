@@ -1,24 +1,14 @@
-import React from 'react';
-import toast from 'react-hot-toast';
+import React, { useContext, useState } from 'react';
+// import toast from 'react-hot-toast';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import { Link } from 'react-router-dom';
 
-const DisplayAdvertiseItems = ({ advertiseItem, refetch }) => {
-    const { name, image, location, Orignal_Price, Resel_Price, Posted_Time, Seller_Name, Year_Of_Use } = advertiseItem;
 
-    const handleDeleteAdvertise = (advertiseItem) => {
+const DisplayAdvertiseItems = ({ advertiseItem, refetch,  }) => {
+    const { user } = useContext(AuthContext);
+    // console.log(user)
 
-        fetch(`https://best-mobile-zone-server.vercel.app/advertise/${advertiseItem._id}`, {
-            method: 'delete'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    toast.success('Advertise Successfully Deleted');
-                    refetch();
-                }
-            })
-            .catch(error => console.log(error))
-    }
-
+    const { name, image, location, Orignal_Price, Resel_Price, Posted_Time, Seller_Name, Year_Of_Use, _id } = advertiseItem;
 
     return (
         <div className="card card-compact w-full bg-base-100 shadow-xl rounded ">
@@ -39,9 +29,8 @@ const DisplayAdvertiseItems = ({ advertiseItem, refetch }) => {
                         <span style={{ fontSize: '15px' }}>Use of Year : {Year_Of_Use}</span>
                     </div>
                 </div>
-                <div className="flex items-center justify-between pb-3">
-                    <button className="btn btn-primary text-white">pay for user</button>
-                    <button onClick={() => handleDeleteAdvertise(advertiseItem)} className="btn btn-primary text-white">Delete for seller</button>
+                <div className=" pb-3">
+                    <Link to='' className="btn btn-primary w-full text-white">book now</Link>
                 </div>
             </div>
         </div>
