@@ -23,8 +23,8 @@ const MyOrders = () => {
 
 
     return (
-        <div>
-           <div className='grid lg:grid-cols-3 gap-10 py-5 pb-10'>
+        <div className='px-[7%]'>
+           <div className='grid lg:grid-cols-3 gap-5 py-5 pb-10'>
                 {
                     myOrders?.map(myOrder=> <DisplayOrders key={myOrder._id} myOrder={myOrder}></DisplayOrders> )
                 }

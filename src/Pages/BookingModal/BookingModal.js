@@ -28,7 +28,6 @@ const BookingModal = ({ modalData }) => {
             console.log(data);
             if(data.acknowledged){
                 toast.success('booking data Successfully added');
-              
             }
        })
        .catch(error=> {

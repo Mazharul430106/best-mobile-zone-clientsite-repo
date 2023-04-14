@@ -1,11 +1,8 @@
-import React, { useContext, useState } from 'react';
-// import toast from 'react-hot-toast';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
-import { Link } from 'react-router-dom';
-
 
 const DisplayAdvertiseItems = ({ advertiseItem, refetch,  }) => {
-    const { user } = useContext(AuthContext);
+    const { setModalData } = useContext(AuthContext);
     // console.log(user)
 
     const { name, image, location, Orignal_Price, Resel_Price, Posted_Time, Seller_Name, Year_Of_Use, _id } = advertiseItem;
@@ -30,7 +27,7 @@ const DisplayAdvertiseItems = ({ advertiseItem, refetch,  }) => {
                     </div>
                 </div>
                 <div className=" pb-3">
-                    <Link to='' className="btn btn-primary w-full text-white">book now</Link>
+                    <label onClick={()=>setModalData(advertiseItem)} htmlFor="booking-modal" className="btn btn-primary w-full text-white"> Book Now</label>
                 </div>
             </div>
         </div>

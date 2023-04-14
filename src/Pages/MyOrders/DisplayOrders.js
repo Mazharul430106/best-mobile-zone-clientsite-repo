@@ -4,7 +4,7 @@ const DisplayOrders = ({ myOrder }) => {
     const {name,email, productImage,itemName, orignalPrice, reselPrice} = myOrder;
 
     return (
-        <div className="card card-compact w-full bg-base-100 shadow-xl">
+        <div className="card card-compact rounded-lg w-full bg-base-100 shadow-xl">
             <figure><img src={productImage} className=" h-80  w-full" alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{itemName}</h2>
