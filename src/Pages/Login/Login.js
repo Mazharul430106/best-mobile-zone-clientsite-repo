@@ -67,7 +67,7 @@ const Login = () => {
                                 <button className="btn btn-primary text-white">Login</button>
                             </div>
                             <div className='text-center pt-4'>
-                                <p className=''>Create a new account ? <Link className='text-red-500' to='/register'>Please Register</Link></p>
+                                <p className=''>Create a new account ? <Link className='text-green-600' to='/register'>Please Register</Link></p>
 
                             </div>
                         </form>

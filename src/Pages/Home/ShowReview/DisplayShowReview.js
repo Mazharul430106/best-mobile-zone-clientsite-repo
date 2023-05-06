@@ -2,6 +2,7 @@ import React from 'react';
 
 const DisplayShowReview = ({ singleReview }) => {
     const { name, url, review } = singleReview;
+    // console.log(singleReview);
     return (
         <div className="card w-full bg-base-100 rounded ">
             <figure><img src={url} className='w-[250px] h-[250px] rounded-full' alt="Shoes" /></figure>

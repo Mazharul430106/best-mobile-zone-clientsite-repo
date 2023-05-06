@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import DisplayShowReview from './DisplayShowReview';
 import Slider from 'react-slick';
-
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-
 
 const ShowReview = () => {
 
@@ -16,7 +14,7 @@ const ShowReview = () => {
             .then(data => setReviews(data))
     }, [])
 
-
+    
     var settings = {
         dots: false,
         infinite: true,

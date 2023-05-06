@@ -20,7 +20,7 @@ const MyOrders = () => {
         })
 
     },[user?.email])
-
+        
 
     return (
         <div className='px-[7%]'>

@@ -56,7 +56,7 @@ export const routes = createBrowserRouter([
             }, 
             {
                 path: '/reviewPage',
-                element: <CoustomarReview></CoustomarReview>
+                element: <PrivateRoutes><CoustomarReview></CoustomarReview></PrivateRoutes>
             },
             
         ]

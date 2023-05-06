@@ -31,7 +31,6 @@ const Register = () => {
                     })
                     .catch(error => {
                         console.log(error);
-
                     })
 
             })
@@ -136,7 +135,7 @@ const Register = () => {
                             </div>
                             <div className='flex px-1 justify-between pt-3 '>
                                 <p>All ready have an account ?</p>
-                                <Link className='text-red-500' to='/login'>Please Login</Link>
+                                <Link className='text-green-600' to='/login'>Please Login</Link>
                             </div>
                         </form>
                     </div>

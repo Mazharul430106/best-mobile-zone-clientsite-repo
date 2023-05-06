@@ -8,7 +8,7 @@ const DisplayOurTeam = ({ singleTeam }) => {
     return (
         <div className="card cardDiv card-compact w-full rounded relative">
             <div className='overlay'>
-                <figure className='teamMembersImg'><img src={img} className='xl:max-h-[400px] lg:max-h-[400px] h-full w-full' alt="Shoes" /></figure>
+                <img src={img} className='' alt="Shoes" />
             </div>
             <div className="text-center">
                 <h3 className='text-xl mt-3 font-semibold uppercase'>{name}</h3>

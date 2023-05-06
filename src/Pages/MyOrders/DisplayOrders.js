@@ -13,7 +13,6 @@ const DisplayOrders = ({ myOrder }) => {
                     <p className='font-semibold'>Email: {email}</p>
                     <p className='font-semibold'>Original Price : {orignalPrice}</p>
                     <p className='font-semibold'>Resel Price : {reselPrice}</p>
-            
                 </div>
                 <div className="card-actions pb-3">
                     <label className="btn btn-primary w-full text-white">pay</label>
