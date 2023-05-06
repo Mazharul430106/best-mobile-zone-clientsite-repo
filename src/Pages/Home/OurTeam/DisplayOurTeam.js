@@ -7,8 +7,8 @@ const DisplayOurTeam = ({ singleTeam }) => {
     const { name, title, img } = singleTeam;
     return (
         <div className="card cardDiv card-compact w-full rounded relative">
-            <div className='overlay'>
-                <img src={img} className='' alt="Shoes" />
+            <div className=''>
+                <img src={img} className='lg:max-h-[400px] w-full' alt="Shoes" />
             </div>
             <div className="text-center">
                 <h3 className='text-xl mt-3 font-semibold uppercase'>{name}</h3>
